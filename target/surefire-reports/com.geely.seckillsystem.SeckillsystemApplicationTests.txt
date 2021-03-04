@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.geely.seckillsystem.SeckillsystemApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 14.601 s - in com.geely.seckillsystem.SeckillsystemApplicationTests
