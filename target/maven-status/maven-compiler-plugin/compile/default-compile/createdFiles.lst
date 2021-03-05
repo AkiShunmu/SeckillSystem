@@ -1,3 +1,6 @@
 com\geely\seckillsystem\controller\UserController.class
 com\geely\seckillsystem\pojo\User.class
+com\geely\seckillsystem\service\IUserService.class
+com\geely\seckillsystem\mapper\UserMapper.class
+com\geely\seckillsystem\service\impl\UserServiceImpl.class
 com\geely\seckillsystem\SeckillsystemApplication.class
