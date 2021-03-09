@@ -1,22 +1,63 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>用户CRUD</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}"/>
 </head>
-<body>
-    <h2>检索用户信息:</h2>
-    <div>
-        <p>请输入用户ID:</p>
-        <input id="userId" type="text" class="form-control" />
-        <p>请输入用户昵称:</p>
-        <input id="userName" type="text" class="form-control" />
-        <p></p>
+<body action="/user" th:action="@{/user}" method="post" >
+    <h2 align="center" >检索用户信息:</h2>
+    <div align="center" style="background-color: #9d9d9d">
+        <table>
+            <tr>
+                <td><text style="margin: 10px;">请输入用户ID:</text></td>
+                <td><input name="userId" type="text" style="margin: 10px;" th:value="*{userId}"/></td>
+            </tr>
+            <tr>
+                <td><text style="margin: 10px;">请输入用户昵称:</text></td>
+                <td><input name="userName" type="text" style="margin: 10px;" th:value="*{userName}"/></td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: center;">
+                    <button type="button" style="padding-left: 20px;padding-right: 20px;font-size: 15px;background-color: #46b8da" >检索</button>
+                </td>
+            </tr>
+        </table>
     </div>
-    <div>
+    <div align="center" style="background-color: aquamarine">
         <!--接收后端数据-->
 
+        <table class="table" >
+            <thead>
+            <tr>
+                <td class="id" style="padding: 15px;" >id</td>
+                <td class="nickname" style="padding: 15px;">昵称</td>
+                <td class="password" style="padding: 15px;">密码</td>
+                <td class="slat" style="padding: 15px;">加密数据</td>
+                <td class="head" style="padding: 15px;">头像</td>
+                <td class="register_date" style="padding: 15px;">注册时间</td>
+                <td class="last_login_date" style="padding: 15px;">上一次登录时间</td>
+                <td class="login_cont" style="padding: 15px;">登录次数</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="user:${userList}">
+                <td ></td>
+                <td ></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td ></td>
+                <td ></td>
+                <td ></td>
+            </tr>
+            </tbody>
+        </table>
     </div>
 
 </body>
+
+<script th:src="@{/js/avalon.js}"></script>
+
 </html>

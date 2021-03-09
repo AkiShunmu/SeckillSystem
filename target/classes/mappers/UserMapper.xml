@@ -23,9 +23,9 @@
         select
         <include refid="Base_Column_List"></include>
         from t_user
-        where
+        where 1 = 1
         <if test="id != null">
-            and id = #{id}
+            id = #{id}
         </if>
         <if test="nickname != null">
             and nickname like concat(concat('%', #{nickname}), '%')
