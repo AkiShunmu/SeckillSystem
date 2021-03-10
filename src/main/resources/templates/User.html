@@ -4,53 +4,72 @@
 <head>
     <meta charset="UTF-8">
     <title>用户CRUD</title>
-    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}"/>
+<!--    连接css样式失败 -->
+<!--    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}"/>-->
+    <style type="text/css">
+        thead {color:#992e7f;}
+        tbody {color:#f94444;}
+        h2 {color:#ffff00;}
+        input {
+            margin: 20px;
+            font-size: 10px;
+            background-color: #5bc0de;
+        }
+        button {
+            padding-left: 20px;
+            padding-right: 20px;
+            font-size: 15px;
+            background-color: #46b877;
+        }
+    </style>
 </head>
-<body action="/user" th:action="@{/user}" method="post" >
-    <h2 align="center" >检索用户信息:</h2>
-    <div align="center" style="background-color: #9d9d9d">
+<body action="/user" th:action="@{/user}" method="post" style="background-color: #c1e2d1">
+    <h2 align="center">检索用户信息:</h2>
+    <div align="center" style="background-color: #c1e2b3">
         <table>
             <tr>
                 <td><text style="margin: 10px;">请输入用户ID:</text></td>
-                <td><input name="userId" type="text" style="margin: 10px;" th:value="*{userId}"/></td>
+                <td><input name="userId" type="text" th:value="${user.getId()}"/></td>
             </tr>
             <tr>
                 <td><text style="margin: 10px;">请输入用户昵称:</text></td>
-                <td><input name="userName" type="text" style="margin: 10px;" th:value="*{userName}"/></td>
+                <td><input name="userName" type="text" th:value="${user.getNickname()}"/></td>
             </tr>
             <tr>
                 <td colspan="2" style="text-align: center;">
-                    <button type="button" style="padding-left: 20px;padding-right: 20px;font-size: 15px;background-color: #46b8da" >检索</button>
+<!--                    <button type="submit" >检索</button>-->
+                    <input type="submit" value="提交">
                 </td>
             </tr>
         </table>
     </div>
-    <div align="center" style="background-color: aquamarine">
+    <div align="center">
         <!--接收后端数据-->
 
-        <table class="table" >
+        <table class="table" style="background-color: #5bc0de" >
             <thead>
             <tr>
                 <td class="id" style="padding: 15px;" >id</td>
                 <td class="nickname" style="padding: 15px;">昵称</td>
                 <td class="password" style="padding: 15px;">密码</td>
-                <td class="slat" style="padding: 15px;">加密数据</td>
+                <td class="slat" style="padding: 15px;">加密因子</td>
                 <td class="head" style="padding: 15px;">头像</td>
                 <td class="register_date" style="padding: 15px;">注册时间</td>
                 <td class="last_login_date" style="padding: 15px;">上一次登录时间</td>
                 <td class="login_cont" style="padding: 15px;">登录次数</td>
             </tr>
             </thead>
-            <tbody>
+            <tbody >
+            <!--接收后端查询的数据-->
             <tr th:each="user:${userList}">
-                <td ></td>
-                <td ></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td ></td>
-                <td ></td>
-                <td ></td>
+                <td  style="padding: 15px;" th:text="${user.getId()}"></td>
+                <td  style="padding: 15px;" th:text="${user.getNickname()}"></td>
+                <td  style="padding: 15px;" th:text="${user.getUserPassword()}"></td>
+                <td  style="padding: 15px;" th:text="${user.getSlat()}"></td>
+                <td  style="padding: 15px;" th:text="${user.getHead()}"></td>
+                <td  style="padding: 15px;" th:text="${user.getRegisterDate()}"></td>
+                <td  style="padding: 15px;" th:text="${user.getLastLoginDate()}"></td>
+                <td  style="padding: 15px;" th:text="${user.getLoginCont()}"></td>
             </tr>
             </tbody>
         </table>
@@ -58,6 +77,7 @@
 
 </body>
 
-<script th:src="@{/js/avalon.js}"></script>
+<!--    连接.js文件失败-->
+<!--<script th:src="@{/js/avalon.js}"></script>-->
 
 </html>

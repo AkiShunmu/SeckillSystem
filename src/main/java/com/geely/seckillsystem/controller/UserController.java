@@ -31,6 +31,7 @@ public class UserController {
     private IUserService userService;
     private final Logger log = LoggerFactory.getLogger(UserController.class);
 
+    //网页连接测试：成功
     @RequestMapping("/webtest")
     public String webtest(Model model) {
         //测试前端交互
@@ -42,16 +43,13 @@ public class UserController {
     //根据 id,nickname 查询用户信息
     @RequestMapping("/getUser")
     public String getUser(String id, String nickname, Model model) {
-//        JSONArray.toJSONString(list);
+        User user = new User();
         List<User> list =  userService.getUser(id, nickname);
         model.addAttribute("userList", list);
+        model.addAttribute("user",user);
         log.info("UserController getUser info...");
         return "User";
     }
 
-    /*public String userText(Model model) {
-        model.addAttribute("user" , new User());
-        return "/user/form";
-    }*/
 
 }
