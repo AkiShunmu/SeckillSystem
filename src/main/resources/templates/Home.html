@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>主页</title>
+    <!--页面图标设置-->
+    <link th:href="@{/ui/iconImg.ico}" rel="shortcut icon" />
+    <link th:href="@{/css/home.css}" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div class="top" >
+        <ul>
+            <li><a href="http://localhost:8001/user/home"><b>首页</b></a></li>
+            <li><a href="http://localhost:8001/user/insertUser">Create</a></li>
+            <li><a href="http://localhost:8001/user/getUser">Retrieve</a></li>
+            <li><a href="http://localhost:8001/user/updateUser">Update</a></li>
+            <li><a href="http://localhost:8001/user/deleteUser">Delete</a></li>
+            <div>
+                <a href="http://localhost:8001/user/about" style="margin-left: 18px;margin-right: 18px;">
+                    <b>关于</b>
+                    <div>
+                        <a href="#">二级菜单</a>
+                        <a href="#">二级菜单</a>
+                    </div>
+                </a>
+            </div>
+        </ul>
+    </div>
+
+</body>
+</html>

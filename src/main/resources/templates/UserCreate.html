@@ -6,39 +6,57 @@
     <title>用户CRUD</title>
 <!--    连接css样式失败 -->
 <!--    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}"/>-->
-    <style type="text/css">
-        thead {color:#992e7f;}
-        tbody {color:#f94444;}
-        h2 {color:#ffff00;}
-        input {
-            margin: 20px;
-            font-size: 10px;
-            background-color: #5bc0de;
-        }
-        button {
-            padding-left: 20px;
-            padding-right: 20px;
-            font-size: 15px;
-            background-color: #46b877;
-        }
-    </style>
+    <!--页面图标设置-->
+    <link th:href="@{/ui/iconImg.ico}" rel="shortcut icon" />
+    <link th:href="@{/css/home.css}" rel="stylesheet" type="text/css" />
 </head>
-<body action="/user" th:action="@{/user}" method="post" style="background-color: #c1e2d1">
-    <h2 align="center">检索用户信息:</h2>
+<body action="/user" th:action="@{/user}" method="post">
+    <script type="text/javascript">
+        function getUser() {
+            //前端查询数据传输
+            console.log("111");
+            var userId = document.getElementById('userId').value;
+            var userName = document.getElementById('userName').value;
+        }
+    </script>
+    <div class="top" >
+        <ul>
+            <li><a href="http://localhost:8001/user/home"><b>首页</b></a></li>
+            <li><a href="http://localhost:8001/user/insertUser">Create</a></li>
+            <li><a href="http://localhost:8001/user/getUser">Retrieve</a></li>
+            <li><a href="http://localhost:8001/user/updateUser">Update</a></li>
+            <li><a href="http://localhost:8001/user/deleteUser">Delete</a></li>
+            <div>
+                <a href="http://localhost:8001/user/about" style="margin-left: 18px;margin-right: 18px;">
+                    <b>关于</b>
+                    <div>
+                        <a href="#">二级菜单</a>
+                        <a href="#">二级菜单</a>
+                    </div>
+                </a>
+            </div>
+        </ul>
+    </div>
+
     <div align="center" style="background-color: #c1e2b3">
-        <table>
+        <table id="table1">
             <tr>
-                <td><text style="margin: 10px;">请输入用户ID:</text></td>
-                <td><input name="userId" type="text" th:value="${user.getId()}"/></td>
+                <td colspan="2" style="text-align: center;">
+                    <h2 align="center">检索用户信息:</h2>
+                </td>
             </tr>
-            <tr>
-                <td><text style="margin: 10px;">请输入用户昵称:</text></td>
-                <td><input name="userName" type="text" th:value="${user.getNickname()}"/></td>
+            <tr >
+                <td><text >请输入用户ID:</text></td>
+                <td><input id="userId" type="text"/></td>
+            </tr>
+            <tr >
+                <td><text >请输入用户昵称:</text></td>
+                <td><input id="userName" type="text"/></td>
             </tr>
             <tr>
                 <td colspan="2" style="text-align: center;">
 <!--                    <button type="submit" >检索</button>-->
-                    <input type="submit" value="提交">
+                    <button id="getUserById" type="button" onclick="getUser()">检索</button>
                 </td>
             </tr>
         </table>
@@ -59,7 +77,7 @@
                 <td class="login_cont" style="padding: 15px;">登录次数</td>
             </tr>
             </thead>
-            <tbody >
+            <tbody style="color:#f94444;">
             <!--接收后端查询的数据-->
             <tr th:each="user:${userList}">
                 <td  style="padding: 15px;" th:text="${user.getId()}"></td>
