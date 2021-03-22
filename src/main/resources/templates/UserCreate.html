@@ -11,12 +11,54 @@
     <link th:href="@{/css/home.css}" rel="stylesheet" type="text/css" />
 </head>
 <body action="/user" th:action="@{/user}" method="post">
-    <script type="text/javascript">
+    <script type="text/javascript" language="javascript" >
         function getUser() {
             //前端查询数据传输
-            console.log("111");
+            // alert("star");
             var userId = document.getElementById('userId').value;
             var userName = document.getElementById('userName').value;
+
+            alert(userId);
+
+            $.ajax({
+                type: "POST",
+                url: "/user/getTes",
+                dataType:"JSON",
+                data: {
+                    id: 'userId',
+                    name: 'userName'
+                },
+                success: function (data) {
+                    // data = jQuery.parseJSON(data);
+                    alert("成功");
+                },
+                error: function () {
+                    alert("失败");
+                }
+            })
+
+        }
+    </script>
+    <script type="text/javascript" language="javascript" >
+        function buttonTest() {
+
+            $.ajax({
+                type: "POST",
+                url: "/user/getTes",
+                dataType:"JSON",
+                data: {
+                    id: 'userId',
+                    name: 'userName'
+                },
+                success: function (data) {
+                    // data = jQuery.parseJSON(data);
+                    alert("成功");
+                },
+                error: function () {
+                    alert("失败");
+                }
+            })
+
         }
     </script>
     <div class="top" >
@@ -56,7 +98,7 @@
             <tr>
                 <td colspan="2" style="text-align: center;">
 <!--                    <button type="submit" >检索</button>-->
-                    <button id="getUserById" type="button" onclick="getUser()">检索</button>
+                    <button type="button" onclick="getUser()">检索</button>
                 </td>
             </tr>
         </table>

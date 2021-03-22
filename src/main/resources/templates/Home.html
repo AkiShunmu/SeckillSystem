@@ -9,6 +9,28 @@
     <link th:href="@{/css/home.css}" rel="stylesheet" type="text/css" />
 </head>
 <body>
+<script type="text/javascript" language="javascript" >
+    function getUser1() {
+        //前端查询数据传输
+        alert("1111");
+
+        /*$.ajax({
+            url: "/user/getUser",
+            type: "POST",
+            data: {
+                userId: userId,
+                userName: userName
+            },
+            success: function (data) {
+                alert("成功");
+            },
+            error: function () {
+                alert("失败");
+            }
+        })*/
+
+    }
+</script>
     <div class="top" >
         <ul>
             <li><a href="http://localhost:8001/user/home"><b>首页</b></a></li>
@@ -26,6 +48,29 @@
                 </a>
             </div>
         </ul>
+    </div>
+    <div>
+        <table id="table1">
+            <tr>
+                <td colspan="2" style="text-align: center;">
+                    <h1 align="center">登录:</h1>
+                </td>
+            </tr>
+            <tr >
+                <td><text >用户名:</text></td>
+                <td><input id="Id" type="text"/></td>
+            </tr>
+            <tr >
+                <td><text >密码:</text></td>
+                <td><input id="Password" type="text"/></td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: center;">
+                    <!--                    <button type="submit" >检索</button>-->
+                    <button type="button" >登录</button>
+                </td>
+            </tr>
+        </table>
     </div>
 
 </body>
